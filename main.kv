@@ -1,0 +1,30 @@
+<MyRecycleViewRow>:
+    size_hint_y: None
+    height: "30dp"
+    MDTextFieldRect:
+        size_hint_y: None
+        height: "30dp"
+    MDTextFieldRect:
+        size_hint_y: None
+        height: "30dp"
+    CheckBox:
+        size_hint_y: None
+        height: "30dp"
+
+BoxLayout:
+    orientation: "vertical"
+    MDTextFieldRect:
+        text: "Before"
+    RecycleView:
+        id: recycle_view
+        viewclass: 'MyRecycleViewRow'
+        data: [{'index': i, 'value_list': _list} for i,_list in enumerate([["a","b","normal"],["1","2","down"],["Socrate","ABBA","down"]])]
+        RecycleBoxLayout:
+            id: recycle_boxlayout
+            orientation: 'vertical'
+            size_hint_y: None
+            height: self.minimum_height
+            default_size_hint: 1, None
+            default_size: 0, dp(30)
+    MDTextFieldRect:
+        text: "After"
